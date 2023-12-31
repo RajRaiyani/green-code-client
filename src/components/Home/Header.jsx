@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../../services/context/AuthContext";
+import { AuthContext } from "../../services/context/AuthContext";
 import { useContextMenu } from "../../hooks";
 import { LogoWithName } from "../../assets/images";
 
@@ -15,7 +15,7 @@ function Header() {
     setContextMenu({visible:!contextMenu.visible,position:{x:0,y:0}});
   }
 
-  const {isLoggedIn,user,LogOutUser} = useAuthContext();
+  const {isLoggedIn,user,LogOutUser} = useContext(AuthContext);
 
 
   function ProfileMenu(){

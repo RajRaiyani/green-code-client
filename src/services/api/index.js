@@ -13,3 +13,8 @@ export const loginUser = (data) =>{
     const url = `${serverDetails.serverProxyURL}/api/v1/user/login`;
     return POST(url,{},data,true);
 }
+
+export const getQuestions = (search='',limit=25,offset=0) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/question?search=${encodeURIComponent(search)}&limit=${limit}&offset=${offset}`;
+    return GET(url,{});
+}
