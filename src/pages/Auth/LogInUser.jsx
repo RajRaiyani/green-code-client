@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {set, useForm} from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { LogoWithName } from "../../assets/images";
 
 import { loginUser } from "../../services/api";
-import {useAuthContext} from "../../services/context/AuthContext";
+import {AuthContext} from "../../services/context/AuthContext";
 
 const schema = yup.object({
     username: yup.string().required("Username is required"),
@@ -15,7 +15,7 @@ const schema = yup.object({
 
 function LogInUser(){
     const Navigate = useNavigate();
-    const {LogInUser} = useAuthContext();
+    const {LogInUser} = useContext(AuthContext);
     const {register, handleSubmit,formState: { errors }} = useForm({resolver: yupResolver(schema)});
     const [errorMessages, setErrorMessages] = useState('');
 
