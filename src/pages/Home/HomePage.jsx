@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { getQuestions } from "../../services/api";
 import { useDebounce } from "../../hooks";
 import SelectMenu from "../../lib/Select";
+import { useGetCategories } from "../../hooks/cache";
 
 
 function HomePage() {
   const [questions,setQuestions] = useState([]);
   const [searchText,setSearchText] = useState('');
+  const [categories] = useGetCategories();
   const debounceSearchText = useDebounce(searchText,500);
 
   
@@ -36,7 +38,7 @@ function HomePage() {
         <div className="w-full flex justify-between my-2">
           <div className="flex">
             <SelectMenu className="min-w-[130px] me-2" placeholder="Level" isClearable isGreen options={[{ value: 'easy', label: 'Easy' },{ value: 'medium', label: 'Medium' },{ value: 'hard', label: 'Hard' }]} />
-            <SelectMenu className="min-w-[130px] max-w-[400px]" placeholder="Categories" isMulti isClearable isGreen options={[{ value: 'easy', label: 'Easy' },{ value: 'medium', label: 'Medium' },{ value: 'hard', label: 'Hard' }]} />
+            <SelectMenu className="min-w-[130px] max-w-[400px]" placeholder="Categories" isMulti isClearable isGreen options={categories.map(v=>({value : v.name,label:v.name}))} />
           </div>
           <input className="text-xl px-1 gc-border-green" type="text" placeholder="Search" onChange={(e) => setSearchText(e.target.value)} />
         </div>

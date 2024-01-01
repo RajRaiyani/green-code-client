@@ -1,7 +1,7 @@
 @import "../abstracts/variables.scss";
 
-*{
-	color: $gc-color-dark;
+::selection{
+	background-color: #7cc52970;
 }
 
 .gc-text-green{
@@ -13,9 +13,6 @@
 }
 .gc-bg-green{
 	background-color: $gc-color-green;
-}
-.gc-bg-green-light{
-	background-color: $gc-color-green-light;
 }
 .gc-bg-dark{
 	background-color: $gc-color-dark;
