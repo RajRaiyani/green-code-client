@@ -11,6 +11,7 @@ import {Question,AddQuestion} from "./pages/Admin/Question";
 import {HomeLayout} from "./components/Home";
 import { AdminLayout } from "./components/Admin";
 import { Category } from "./pages/Admin/Category";
+import { Language } from "./pages/Admin/Language";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="question" element={<Question />} />
         <Route path="question/add" element={<AddQuestion />} />
         <Route path="category" element={<Category />} />
+        <Route path="language" element={<Language />} />
       </Route>
     </Routes>
   );
