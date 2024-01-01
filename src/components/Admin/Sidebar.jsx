@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineCategory } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
 import { LuFileQuestion } from "react-icons/lu";
+import { FaLanguage } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Sidebar(){
@@ -19,6 +20,10 @@ function Sidebar(){
                 <Link to="category" className="w-full ps-7 flex p-3 hover:bg-gray-300 items-center ">
                     <MdOutlineCategory className="text-xl me-2" />
                     <p>Category</p>
+                </Link>
+                <Link to="language" className="w-full ps-7 flex p-3 hover:bg-gray-300 items-center ">
+                    <FaLanguage className="text-xl me-2" />
+                    <p>Language</p>
                 </Link>
 
             </div>

@@ -42,3 +42,27 @@ export const getCategories = () =>{
     const url = `${serverDetails.serverProxyURL}/api/v1/category`;
     return GET(url,{});
 }
+
+
+// ===================== Languages =====================
+
+export const addLanguage = (data) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/language`;
+    return POST(url,{},data);
+}
+
+export const getLanguages = () =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/language`;
+    return GET(url,{});
+}
+
+export const updateLanguage = (id,data) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/language/${id}`;
+    return PUT(url,{},data);
+}
+
+export const deleteLanguage = (id) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/language/${id}`;
+    return DELETE(url,{});
+}
+

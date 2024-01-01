@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { getCategories } from "../../services/api";
 import { GlobalStoreContext } from "../../services/context/GlobalStoreContext";
 
 function useGetCategories() {
   const { categories, setCategories } = useContext(GlobalStoreContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(categories.length === 0){
       getCategories().then((data) => {
         setCategories(data);
