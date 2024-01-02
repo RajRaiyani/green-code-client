@@ -1,6 +1,6 @@
 import Question from "./Question";
-import AddQuestion from "./AddQuestion";
+import AddEditQuestion from "./AddEditQuestion";
 
 export {
-    Question,AddQuestion
+    Question,AddEditQuestion
 }
