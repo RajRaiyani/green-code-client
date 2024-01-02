@@ -6,7 +6,7 @@ import { AdminRoute } from "./services/routes";
 import {HomePage} from "./pages/Home";
 import {RegisterUser,LogInUser} from "./pages/Auth";
 import {Dashboard} from "./pages/Admin/Dashboard";
-import {Question,AddQuestion} from "./pages/Admin/Question";
+import {Question,AddEditQuestion} from "./pages/Admin/Question";
 
 import {HomeLayout} from "./components/Home";
 import { AdminLayout } from "./components/Admin";
@@ -24,9 +24,11 @@ function App() {
       <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
         <Route path="" element={<Dashboard />} />
         <Route path="question" element={<Question />} />
-        <Route path="question/add" element={<AddQuestion />} />
         <Route path="category" element={<Category />} />
         <Route path="language" element={<Language />} />
+        <Route path="question/add" element={<AddEditQuestion />} />
+        <Route path="question/:id/edit" element={<AddEditQuestion />} />
+
       </Route>
     </Routes>
   );

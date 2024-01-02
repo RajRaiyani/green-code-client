@@ -22,6 +22,11 @@ export const getQuestions = (search='',limit=25,offset=0) =>{
     return GET(url,{});
 }
 
+export const addQuestion = (data) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/question`;
+    return POST(url,{},data);
+}
+
 // ===================== Categories =====================
 export const addCategory = (data) =>{
     const url = `${serverDetails.serverProxyURL}/api/v1/category`;
