@@ -1,6 +1,6 @@
 import React from "react";
 import { IoAdd } from "react-icons/io5";
-import { useGetCategories } from "../../../hooks/cache";
+import { useGetCategories } from "../../../hooks/data";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {set, useForm} from "react-hook-form";
 import * as yup from "yup";

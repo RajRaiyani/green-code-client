@@ -1,14 +1,17 @@
 import axios from "axios";
 
-const makeHTTPCall = (method,url,headers,params=null)=>new Promise((resolve,reject)=>{
-    axios({
+const makeHTTPCall = (method,url,headers,data=null)=>new Promise((resolve,reject)=>{
+    const options = {
         method,
         url,
         headers,
-        data : params,
         responseType : 'json',
         withCredentials : true
-    }).then((response)=>{resolve(response.data)})
+    }
+    if(method === 'get') options.params = data;
+    else options.data = data;
+
+    axios(options).then((response)=>{resolve(response.data)})
     .catch((error)=>{
         if(error.message === 'Network Error')return;
         if(!error.response) return;
@@ -17,13 +20,13 @@ const makeHTTPCall = (method,url,headers,params=null)=>new Promise((resolve,reje
     })
 })
 
-export const GET = (url,headers={}) => makeHTTPCall('get',url,headers);
+export const GET = (url,headers={},params) => makeHTTPCall('get',url,headers,params);
 
-export const POST = (url,headers={},params=null) => makeHTTPCall('post',url,headers,params);
+export const POST = (url,headers={},data=null) => makeHTTPCall('post',url,headers,data);
 
-export const PUT = (url,headers={},params=null) => makeHTTPCall('put',url,headers,params);
+export const PUT = (url,headers={},data=null) => makeHTTPCall('put',url,headers,data);
 
-export const DELETE = (url,headers={},params=null) => makeHTTPCall('delete',url,headers,params);
+export const DELETE = (url,headers={},data=null) => makeHTTPCall('delete',url,headers,data);
 
 
 export default {

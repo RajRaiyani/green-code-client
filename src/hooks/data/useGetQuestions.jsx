@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getQuestions } from "../services/api";
+import { getQuestions } from "../../services/api";
 
 
 function useGetQuestions(search,level='',categories=[],offset,limit){
