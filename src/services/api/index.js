@@ -18,8 +18,10 @@ export const loginUser = (data) =>{
 
 // ===================== Questions =====================
 export const getQuestions = (search='',level,categories=[],offset=0,limit=25) =>{
-    const url = `${serverDetails.serverProxyURL}/api/v1/question?search=${encodeURIComponent(search)}` + (limit ? `&limit=${limit}` :'') + (offset?`&offset=${offset}`:'') + (level?`&level=${level}`:'') + (categories.length? '&'+categories.map(v=>`categories=${v}`).join('&'):'');
-    return GET(url,{});
+    const url = `${serverDetails.serverProxyURL}/api/v1/question`;
+    const params = {search,offset,categories,limit};
+    if(level !== '')params.level = level;
+    return GET(url,{},params);
 }
 
 export const addQuestion = (data) =>{

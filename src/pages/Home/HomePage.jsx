@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
-import { getQuestions } from "../../services/api";
-import { useDebounce,useGetQuestions } from "../../hooks";
+import { useDebounce } from "../../hooks";
+import {useGetQuestions} from "../../hooks/data";
 import SelectMenu from "../../lib/Select";
-import { useGetCategories } from "../../hooks/cache";
+import { useGetCategories } from "../../hooks/data";
+import {Question} from "../../components/Question";
+import { Link } from "react-router-dom";
 
 
 function HomePage() {
@@ -13,7 +15,7 @@ function HomePage() {
   const [searchCategories,setSearchCategories] = useState([]);
   const [level,setLevel] = useState('');
   const [offset,setOffset] = useState(0);
-  const [limit,setLimit] = useState(5);
+  const [limit,setLimit] = useState(15);
 
   const [questions] = useGetQuestions(debounceSearchText,level,searchCategories,offset,limit);
 
@@ -22,19 +24,16 @@ function HomePage() {
   function QuestionList() {
     return questions.map((ques,index) => {
       return (
-        <div className="border p-1  items-center " key={index}>
-          <span className="font-bold me-2">{offset+index}</span>
-          <h4>{ques.title}</h4><br />
-          <p>{ques.level}</p><br />
-          <p>{ques.categories.map(v=>v.name).join(',')}</p>
-        </div>
+        <Link key={index} to={"/question/"+ques._id}>
+          <Question className=''  data={{...ques,number:index}} />
+        </Link>
       );
     })
   }
 
   return (
-    <div>
-      <div className="w-2/3 px-3">
+    <div className="h-full w-full">
+      <div className="w-2/3 px-3 h-full flex flex-col">
         <div className="w-full flex justify-between my-2">
           <div className="flex">
             <SelectMenu onChange={(data)=>setLevel(data?.value)} className="min-w-[130px] me-2" placeholder="Level" isClearable isGreen options={[{ value: 'easy', label: 'Easy' },{ value: 'medium', label: 'Medium' },{ value: 'hard', label: 'Hard' }]} />
@@ -42,9 +41,13 @@ function HomePage() {
           </div>
           <input className="text-xl px-1 gc-border-green" type="text" placeholder="Search" onChange={(e) => setSearchText(e.target.value)} />
         </div>
-        <QuestionList />
-        <button onClick={()=>setOffset(offset-limit)}>back</button><br />
-        <button onClick={()=>setOffset(offset+limit)}>next</button>
+        <div className="overflow-y-auto" style={{height:'calc(100vh - 180px)'}} >
+          <QuestionList />
+        </div>
+        <div className="flex p-1 items-center justify-end">
+          <button className="px-2 hover:scale-110 duration-200 text-xl gc-text-green rounded border" onClick={()=>setOffset(offset-limit)}>&lt;</button><br />
+          <button className="px-2 hover:scale-110 duration-200 text-xl ms-5 gc-text-green rounded border" onClick={()=>setOffset(offset+limit)}>&gt;</button>
+        </div>
       </div>
     </div>
   );
