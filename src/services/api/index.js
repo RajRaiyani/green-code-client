@@ -24,6 +24,11 @@ export const getQuestions = (search='',level,categories=[],offset=0,limit=25) =>
     return GET(url,{},params);
 }
 
+export const getQuestionById = (id) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/question/${id}`;
+    return GET(url,{});
+}
+
 export const addQuestion = (data) =>{
     const url = `${serverDetails.serverProxyURL}/api/v1/question`;
     return POST(url,{},data);
