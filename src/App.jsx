@@ -20,10 +20,10 @@ function App() {
     <Routes>
       <Route path="/" element={<HomeLayout />}>
         <Route path="" element={<HomePage />} />
+        <Route path="/question/:id" element={<QuestionPage />} />
       </Route>
       <Route path="/register" element={<RegisterUser />} />
       <Route path="/login" element={<LogInUser />} />
-      <Route path="/question/:id" element={<QuestionPage />} />
       <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
         <Route path="" element={<Dashboard />} />
         <Route path="question" element={<Question />} />

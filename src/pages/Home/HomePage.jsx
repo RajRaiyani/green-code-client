@@ -24,7 +24,7 @@ function HomePage() {
   function QuestionList() {
     return questions.map((ques,index) => {
       return (
-        <Link key={index} to={"/question/"+ques._id}>
+        <Link key={index} to={"/question/"+ques._id} className="block mb-2">
           <Question className=''  data={{...ques,number:index}} />
         </Link>
       );
