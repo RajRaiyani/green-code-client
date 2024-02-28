@@ -2,7 +2,7 @@ import React from "react";
 import { IoAdd } from "react-icons/io5";
 import { useGetLanguages } from "../../../hooks/data";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {set, useForm} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import * as yup from "yup";
 import { addLanguage,deleteLanguage,updateLanguage } from "../../../services/api";
 import { MdDelete } from "react-icons/md";
@@ -22,7 +22,7 @@ function Language(){
 
     function onSubmit(data){
         if(isEdit){
-            updateLanguage(data.id,{name:data.name}).then(res=>{
+            updateLanguage(data.id,{name:data.name}).then(()=>{
                 setLanguages(languages.map(lan=>lan._id===data.id?{...lan,name:data.name}:lan));
                 setValue('name','');
                 setIsEdit(false);
@@ -37,7 +37,7 @@ function Language(){
     }
 
     function onDelete(){
-        deleteLanguage(watchId).then(res=>{
+        deleteLanguage(watchId).then(()=>{
             setLanguages(languages.filter(lan=>lan._id!==watchId));
             setValue('name','');
             setIsEdit(false);

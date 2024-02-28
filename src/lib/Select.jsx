@@ -1,4 +1,3 @@
-import React from "react";
 import Select from "react-select";
 import PropTypes from "prop-types";
 
@@ -8,7 +7,7 @@ function SelectMenu(props) {
         <Select
             {...props}
             styles={{
-                control: (styles, { isFocused }) => ({
+                control: (styles) => ({
                     ...styles,
                     borderColor: undefined,
                     boxShadow: 'none',
@@ -21,7 +20,7 @@ function SelectMenu(props) {
                     backgroundColor: undefined,
                     color: undefined,
                 }),
-                multiValue: (styles, { data }) => ({
+                multiValue: (styles) => ({
                     ...styles,
                     backgroundColor: undefined,
                     borderRadius: undefined,
@@ -38,7 +37,7 @@ function SelectMenu(props) {
             classNames={{
                 control: (state) => state.isFocused ? 'gc-border-green' : props.isGreen ? 'gc-border-green' : undefined,
                 option: (state) => state.isFocused ? 'gc-bg-green-light' : undefined,
-                multiValue: (state) => 'border gc-border-green rounded-md',
+                multiValue: () => 'border gc-border-green rounded-md',
             }}
 
             options={props.options}

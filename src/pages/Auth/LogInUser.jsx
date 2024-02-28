@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import {set, useForm} from "react-hook-form";
+import  { useContext, useState } from "react";
+import { useForm} from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -20,7 +20,7 @@ function LogInUser(){
     const [errorMessages, setErrorMessages] = useState('');
 
     function onSubmit(data){
-        loginUser(data).then((res)=>{
+        loginUser(data).then(()=>{
             LogInUser();
             Navigate("/");
         }).catch((data)=>{

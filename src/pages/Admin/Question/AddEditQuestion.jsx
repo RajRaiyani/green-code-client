@@ -1,11 +1,10 @@
-import React from "react";
 import SelectMenu from "../../../lib/Select";
 import { useGetCategories } from "../../../hooks/data";
 import {useForm,Controller} from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { addQuestion } from "../../../services/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const schema = yup.object().shape({
@@ -16,7 +15,7 @@ const schema = yup.object().shape({
 });
 
 function AddEditQuestion({edit}){
-    const params = useParams();
+
     const Navigate = useNavigate();
     const [categories] = useGetCategories();
     const {register,control,handleSubmit,formState:{errors}} = useForm({resolver: yupResolver(schema)});
@@ -24,7 +23,7 @@ function AddEditQuestion({edit}){
     function onSubmit(data){
         data.level = data.level.value;
         data.categories = data.categories.map(v=>v.id);
-        addQuestion(data).then((res)=>{
+        addQuestion(data).then(()=>{
             Navigate('/admin/question');
         })
     }

@@ -1,4 +1,4 @@
 
 export const serverDetails = {
-    serverProxyURL : process.env.REACT_APP_SERVER_URL,
+    serverProxyURL : import.meta.env.VITE_SERVER_URL,
 }

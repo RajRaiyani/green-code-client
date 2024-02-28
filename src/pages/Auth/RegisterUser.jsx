@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {useForm} from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -21,7 +21,7 @@ function RegisterUser(){
 
     function onSubmit({username,email,password}){
         registerUser({username,email,password})
-        .then((res)=>{Navigate("/login")})
+        .then(()=>{Navigate("/login")})
         .catch((data)=>{
             if(data.code === 'duplicate_key_value')setErrorMessages('Username or Email already exists')
         })  

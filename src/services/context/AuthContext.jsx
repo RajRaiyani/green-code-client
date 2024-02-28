@@ -11,7 +11,6 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(()=>{
         LogInUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     function LogInUser(){

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import  {  useState } from "react";
 import { useDebounce } from "../../hooks";
 import {useGetQuestions} from "../../hooks/data";
 import SelectMenu from "../../lib/Select";
@@ -15,7 +15,7 @@ function HomePage() {
   const [searchCategories,setSearchCategories] = useState([]);
   const [level,setLevel] = useState('');
   const [offset,setOffset] = useState(0);
-  const [limit,setLimit] = useState(15);
+  const [limit] = useState(15);
 
   const [questions] = useGetQuestions(debounceSearchText,level,searchCategories,offset,limit);
 

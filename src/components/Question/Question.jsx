@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { FaCircle } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
