@@ -1,4 +1,3 @@
-import React from "react";
 import { MdOutlineCategory } from "react-icons/md";
 import { RxDashboard } from "react-icons/rx";
 import { LuFileQuestion } from "react-icons/lu";

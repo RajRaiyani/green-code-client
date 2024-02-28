@@ -2,7 +2,7 @@ import React from "react";
 import { IoAdd } from "react-icons/io5";
 import { useGetCategories } from "../../../hooks/data";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {set, useForm} from "react-hook-form";
+import { useForm} from "react-hook-form";
 import * as yup from "yup";
 import { addCategory,deleteCategory,updateCategory } from "../../../services/api";
 import { MdDelete } from "react-icons/md";
@@ -22,7 +22,7 @@ function Category(){
 
     function onSubmit(data){
         if(isEdit){
-            updateCategory(data.id,{name:data.name}).then(res=>{
+            updateCategory(data.id,{name:data.name}).then(()=>{
                 setCategories(categories.map(ctg=>ctg._id===data.id?{...ctg,name:data.name}:ctg));
                 setValue('name','');
                 setIsEdit(false);
@@ -37,7 +37,7 @@ function Category(){
     }
 
     function onDelete(){
-        deleteCategory(watchId).then(res=>{
+        deleteCategory(watchId).then(()=>{
             setCategories(categories.filter(ctg=>ctg._id!==watchId));
             setValue('name','');
             setIsEdit(false);

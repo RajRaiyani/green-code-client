@@ -26,3 +26,4 @@ export const GlobalStoreProvider = ({ children }) => {
 GlobalStoreProvider.propTypes = {
     children: PropTypes.node.isRequired,
 };
+

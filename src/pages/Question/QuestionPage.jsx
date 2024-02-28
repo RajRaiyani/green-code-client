@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetQuestionById } from "../../hooks/data";
 import { FaCircle } from "react-icons/fa";
@@ -9,8 +8,8 @@ function QuestionPage(){
   const params = useParams();
 
 
-  const [question,setQuestion] = useGetQuestionById(params.id);
-  function Level(level) {
+  const [question] = useGetQuestionById(params.id);
+  function Level() {
     var questionLevel = question.level?.toLowerCase();
     if (questionLevel === "hard") return (<FaCircle className="text-red-600 text-xs" />);
     if (questionLevel === "medium") return (<FaCircle className="text-orange-400 text-xs" />);
