@@ -14,10 +14,10 @@ function HomePage() {
   const debounceSearchText = useDebounce(searchText,500);
   const [searchCategories,setSearchCategories] = useState([]);
   const [level,setLevel] = useState('');
-  const [offset,setOffset] = useState(0);
+  const [skip,setSkip] = useState(0);
   const [limit] = useState(15);
 
-  const [questions] = useGetQuestions(debounceSearchText,level,searchCategories,offset,limit);
+  const [questions] = useGetQuestions(debounceSearchText,level,searchCategories,skip,limit);
 
 
 
@@ -45,8 +45,8 @@ function HomePage() {
           <QuestionList />
         </div>
         <div className="flex p-1 items-center justify-end">
-          <button className="px-2 hover:scale-110 duration-200 text-xl gc-text-green rounded border" onClick={()=>setOffset(offset-limit)}>&lt;</button><br />
-          <button className="px-2 hover:scale-110 duration-200 text-xl ms-5 gc-text-green rounded border" onClick={()=>setOffset(offset+limit)}>&gt;</button>
+          <button className="px-2 hover:scale-110 duration-200 text-xl gc-text-green rounded border" onClick={()=>setSkip(skip-limit)}>&lt;</button><br />
+          <button className="px-2 hover:scale-110 duration-200 text-xl ms-5 gc-text-green rounded border" onClick={()=>setSkip(skip+limit)}>&gt;</button>
         </div>
       </div>
     </div>
