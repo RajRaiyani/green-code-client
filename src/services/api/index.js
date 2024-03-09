@@ -17,9 +17,9 @@ export const loginUser = (data) =>{
 
 
 // ===================== Questions =====================
-export const getQuestions = (search='',level,categories=[],offset=0,limit=25) =>{
+export const getQuestions = (search='',level,categories=[],skip=0,limit=25) =>{
     const url = `${serverDetails.serverProxyURL}/api/v1/questions`;
-    const params = {search,offset,categories,limit};
+    const params = {search,skip,categories,limit};
     if(level !== '')params.level = level;
     return GET(url,{},params);
 }
