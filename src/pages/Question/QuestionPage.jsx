@@ -57,7 +57,7 @@ function QuestionPage() {
 					<span className=" text-2xl font-bold">
 						{question.number}
 					</span>
-					<span className="text-xl p-2 font-light">
+					<span className="text-xl p-2 font-medium">
 						{question.title}
 					</span>
 					<div className="flex justify-between mb-2">
