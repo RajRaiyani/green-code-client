@@ -12,7 +12,7 @@ function Question({data,className}){
         if (questionLevel === "easy") return (<FaCircle className="gc-text-green text-xs" />);
     }
     return (
-        <div className={"flex max-w-[1200px] justify-between items-center border rounded-lg px-3 py-1 bg-white" + ' ' + className}>
+        <div className={"flex  justify-between items-center border rounded-lg px-3 py-1 bg-white" + ' ' + className}>
 			<div>
 				<div className="truncate"><span className="me-2 text-md font-bold">{data.number}</span>{data.title}</div>
 				<div className="text-sm flex items-center"><Level />&nbsp;Level</div>

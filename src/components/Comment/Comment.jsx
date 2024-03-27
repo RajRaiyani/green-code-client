@@ -1,18 +1,36 @@
+import PropTypes from "prop-types";
+import { MdDeleteForever } from "react-icons/md"
 
-
-const Comment = () => {
+const Comment = ({ date, comment, username, className, admin }) => {
 
 
     return (
-        <>
-        <div className="text-xl mt-2 flex items-center"><span className="flex items-center me-2 justify-center h-10 w-10 rounded-full border-4 gc-border-green text-center text-2xl font-bold align-middle ">d</span></div>
-        <div className="flex items-center mt-2 "><input type="text"  className="w-full border-b gc-border-black  p-2 " placeholder="Write a comment"  /><button className="gc-bg-green ms-4 text-white w-[110px] p-2 border rounded-lg hover:scale-110 duration-300" >POST</button></div>
-        <div className="overflow-y-auto sm:mt-8 sm:ms-10 sm:me-10 h-[50vh]">
-           
-            
+        <div className={"p-3 border rounded-md " + className}>
+            <div className="flex justify-between">
+                <div>
+                    <button className="py-1 font-semibold px-2.5 hover:scale-105 border rounded-full gc-text-green gc-border-green duration-200">
+                        {username[0].toUpperCase()}
+                    </button>
+                    <span className="mx-2 font-medium">{username[0].toUpperCase() + username.slice(1)}</span>
+                </div>
+                <div className="text-sm">{date}</div>
+                {
+                    admin === true && <MdDeleteForever className="text-3xl hover:scale-110 hover:cursor-pointer duration-300 text-red-600" />
+                }
+            </div>
+            <div className="pt-3 pb-2">
+                {comment}
+            </div>
         </div>
-    </>
     )
 
+}
+
+Comment.propTypes = {
+    date: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    className: PropTypes.string.isRequired,
+    admin: PropTypes.bool.isRequired
 }
 export default Comment;

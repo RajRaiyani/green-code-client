@@ -12,9 +12,9 @@ function Solution({title,code,language,admin}){
 	github.hljs.background = "white"
 	
     return (
-        <div className="bg-white px-3 pb-3 m-3 rounded-xl min-w-[300px] max-w-[1000px] styleForSolution my-6" >
+        <div className="bg-white px-3 pb-3 m-3 rounded-xl min-w-[300px] max-w-[1000px] gc-shadow-solution my-6" >
 			<div className="flex justify-between items-center">
-				<div className="relative bg-white w-fit -translate-y-1/3 py-1 px-2 rounded-md styleForSolutionTitle"  >{title}</div>
+				<div className="relative bg-white w-fit -translate-y-1/3 py-1 px-2 rounded-md gc-shadow-solution-title"  >{title}</div>
 				<div className='flex justify-between items-center'>
 					<BiCopy className='relative translate-y-2 text-3xl hover:scale-110 duration-200 gc-text-green' />
 					{admin && <MdDeleteForever className='relative translate-y-2 text-3xl hover:scale-110 duration-200 mx-3 text-red-500' />}
