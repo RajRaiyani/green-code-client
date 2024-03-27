@@ -11,7 +11,6 @@ function Question({data,className}){
         if (questionLevel === "medium") return (<FaCircle className="text-orange-400 text-xs" />);
         if (questionLevel === "easy") return (<FaCircle className="gc-text-green text-xs" />);
     }
-
     return (
         <div className={"flex max-w-[1200px] justify-between items-center border rounded-lg px-3 py-1 bg-white" + ' ' + className}>
 			<div>
@@ -30,7 +29,7 @@ function Question({data,className}){
 }
 
 Question.propTypes = {
-    data: PropTypes.object.isRequire,
+    data: PropTypes.object.isRequired,
     className: PropTypes.string,
 }
 

@@ -78,3 +78,9 @@ export const deleteLanguage = (id) =>{
     return DELETE({url});
 }
 
+// ====================== Solution =====================
+export const getSolutions = (id) =>{
+    const url = `${serverDetails.serverProxyURL}/api/v1/solutions`;
+    const params = {"question":id}
+    return GET({url,params});
+}
